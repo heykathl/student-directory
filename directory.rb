@@ -1,16 +1,34 @@
-students = [
-  {name: "Dr Hannibal Lector", cohort: :november},
-  {name: "Darth Vader", cohort: :november},
-  {name: "Nurse Ratched", cohort: :november},
-  {name: "Michael Corleone", cohort: :november},
-  {name: "Alex DeLarge", cohort: :november},
-  {name: "The Wicked Witch of the West", cohort: :november},
-  {name: "Terminator", cohort: :november},
-  {name: "Freddy Krueger", cohort: :november},
-  {name: "THe Joker", cohort: :november},
-  {name: "Joffrey Baratheon", cohort: :november},
-  {name: "Norman Bates", cohort: :november}
-]
+def input_students
+  puts "Please enter the names of the students"
+  puts "To finish, just return twice"
+
+  students = []
+
+  name  = gets.chomp
+  
+  # if someone types something in and is stored in name variable
+  while !name.empty? do 
+    students << {name: name, cohort: :november}
+    puts "Now we have #{students.count} students"
+  # ask again
+    name = gets.chomp
+  end
+  students
+end
+
+# students = [
+#   {name: "Dr Hannibal Lector", cohort: :november},
+#   {name: "Darth Vader", cohort: :november},
+#   {name: "Nurse Ratched", cohort: :november},
+#   {name: "Michael Corleone", cohort: :november},
+#   {name: "Alex DeLarge", cohort: :november},
+#   {name: "The Wicked Witch of the West", cohort: :november},
+#   {name: "Terminator", cohort: :november},
+#   {name: "Freddy Krueger", cohort: :november},
+#   {name: "THe Joker", cohort: :november},
+#   {name: "Joffrey Baratheon", cohort: :november},
+#   {name: "Norman Bates", cohort: :november}
+# ]
 
 def print_header
   puts "The students of Villains Academy"
@@ -27,6 +45,7 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
+students = input_students
 print_header
 print(students)
 print_footer(students)
